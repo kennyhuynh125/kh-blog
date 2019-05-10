@@ -15,7 +15,7 @@ install:
   - yarn install --ignore-scripts --ignore-engines
   - cd client && yarn install --ignore-scripts --ignore-engines
   - cd ..
-  - node ./server/scripts/create-tables.js
+  - node ./server/scripts/setup-test-db.js
 
 script:
   - yarn lint
