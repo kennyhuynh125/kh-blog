@@ -12,6 +12,7 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 install:
+  - psql -U postgres blog_test < test_db.dump
   - yarn install --ignore-scripts --ignore-engines
   - cd client && yarn install --ignore-scripts --ignore-engines
 
