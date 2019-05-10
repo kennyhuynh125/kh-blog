@@ -1,0 +1,9 @@
+require('dotenv').config();
+const app = require('../app');
+
+process.on('warning', warn => console.log('GOT WARNING', warn));
+
+const port = process.env.PORT || 3001
+app.listen(port, () => {
+  console.log(`Application is listening on the port ${port}`);
+});
