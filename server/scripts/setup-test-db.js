@@ -5,8 +5,8 @@ async function run() {
   try {
     await db.query('BEGIN');
     await db.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-    await db.query('DROP TABLE IF EXISTS users');
     await db.query('DROP TABLE IF EXISTS posts');
+    await db.query('DROP TABLE IF EXISTS users');
     await db.query(`CREATE TABLE "public"."users" (
       "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
       "first_name" text,
