@@ -4,7 +4,7 @@ const db = require('../db');
 async function run() {
   try {
     await db.query('BEGIN');
-    await db.query("CREATE EXTENSION IF EXISTS 'uuid-ossp'");
+    await db.query("CREATE EXTENSION IF NOT EXISTS 'uuid-ossp'");
     await db.query('DROP TABLE IF EXISTS users');
     await db.query('DROP TABLE IF EXISTS posts');
     await db.query(`CREATE TABLE "public"."posts" (
