@@ -1,0 +1,23 @@
+language: node_js
+
+ node_js:
+  - "node"
+
+ services:
+  - postgresql
+
+ before_install:
+  - psql -c 'create database blog_test' -U postgres
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
+ install:
+  - yarn install --ignore-scripts --ignore-engines
+  - cd client && yarn install --ignore-scripts --ignore-engines
+  - cd ..
+  - node ./server/scripts/setup-test-db.js
+
+ script:
+  - yarn lint
+  - yarn lint:client
+  - yarn test
