@@ -1,7 +1,7 @@
 {
   "name": "kh-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web-based blogging application for myself",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -25,10 +25,13 @@
   },
   "scripts": {
     "test": "mocha --recursive './server'",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --ext js",
+    "lint:fix": "yarn lint --fix",
+    "lint:client": "cd client && yarn lint",
+    "lint:client:fix": "cd client && yarn lint --fix",
     "watch": "nodemon server/bin/www",
     "start": "node server/bin/www"
   },
-  "author": "",
+  "author": "Kenny Huynh",
   "license": "ISC"
 }
