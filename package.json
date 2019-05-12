@@ -25,7 +25,8 @@
   },
   "scripts": {
     "test": "mocha --recursive './server'",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --ext js",
+    "lint:fix": "yarn lint --fix",
     "lint:client": "cd client && yarn lint",
     "lint:client:fix": "cd client && yarn lint --fix",
     "watch": "nodemon server/bin/www",
