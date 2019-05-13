@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const db = require('../../db');
 const usersController = require('../../controllers/users');
 
-describe.only('user Controller', () => {
+describe('user Controller', () => {
   before(async () => {
     await db.query('DELETE FROM users');
   });
