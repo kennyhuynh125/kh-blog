@@ -47,6 +47,16 @@ router.route('/:id')
     } catch (err) {
       next(err);
     }
+  })
+  .post(async (req, res, next) => {
+    try {
+      const response = await postController.deletePost({
+        id: req.params.id,
+      });
+      res.send(response);
+    } catch (err) {
+      next(err);
+    }
   });
 
 module.exports = router;

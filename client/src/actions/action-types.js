@@ -1,0 +1,31 @@
+export const GET_ALL_POSTS = 'GET_ALL_POSTS';
+export const GET_ALL_POSTS_FAIL = 'GET_ALL_POSTS_FAIL';
+export const GET_ALL_POSTS_SUCCESS = 'GET_ALL_POSTS_SUCCESS';
+
+export const UPDATE_POST = 'UPDATE_POST';
+export const UPDATE_POST_FAIL = 'UPDATE_POST_FAIL';
+export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
+
+export const CREATE_POST = 'CREATE_POST';
+export const CREATE_POST_FAIL = 'CREATE_POST_FAIL';
+export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
+
+export const GET_POST = 'GET_POST';
+export const GET_POST_FAIL = 'GET_POST_FAIL';
+export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
+
+export const DELETE_POST = 'DELETE_POST';
+export const DELETE_POST_FAIL = 'DELETE_POST_FAIL';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+
+export const LOGIN = 'LOGIN';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+
+export const LOGOUT = 'LOGOUT';
+export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+
+export const CREATE_USER = 'CREATE_USER';
+export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
