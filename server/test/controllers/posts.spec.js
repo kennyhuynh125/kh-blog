@@ -43,10 +43,8 @@ describe('post Controller', () => {
         title: 'NewTitle',
         content: 'NewContent',
       });
-      expect(response).to.be.an('array').with.length(0);
-      const { rows } = await db.query('SELECT * FROM posts');
-      expect(rows).to.be.an('array').with.length(1);
-      const [post] = rows;
+      expect(response).to.be.an('array').with.length(1);
+      const [post] = response;
       expect(post.title).to.equal('NewTitle');
       expect(post.content).to.equal('NewContent');
     });
@@ -68,9 +66,11 @@ describe('post Controller', () => {
         title: 'newTitle',
         userId: this.user.id,
       });
-      expect(response).to.be.an('array').with.length(0);
-      const { rows } = await db.query('SELECT * FROM posts');
-      expect(rows).to.be.an('array').with.length(2);
+      expect(response).to.be.an('array').with.length(1);
+      const [post] = response;
+      expect(post.title).to.equal('newTitle');
+      expect(post.user_id).to.equal(this.user.id);
+      expect(post.content).to.equal('newContent');
     });
     it('should error if there is no title', async () => {
       try {
