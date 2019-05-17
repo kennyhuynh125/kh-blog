@@ -36,7 +36,7 @@ const updatePost = async ({ id, title, content } = {}) => {
   }
   try {
     await db.query('BEGIN');
-    const query = 'UPDATE posts SET title = ($1), content = ($2) WHERE id = ($3)';
+    const query = 'UPDATE posts SET title = ($1), content = ($2) WHERE id = ($3) RETURNING *';
     const values = [title, content, id];
     const { rows } = await db.query(query, values);
     await db.query('COMMIT');
@@ -79,7 +79,7 @@ const createPost = async ({ content, title, userId }) => {
 
   try {
     await db.query('BEGIN');
-    const query = 'INSERT INTO posts (title, content, user_id) VALUES ($1, $2, $3)';
+    const query = 'INSERT INTO posts (title, content, user_id) VALUES ($1, $2, $3) RETURNING *';
     const values = [title, content, userId];
     const { rows } = await db.query(query, values);
     await db.query('COMMIT');

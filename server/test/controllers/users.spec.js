@@ -14,7 +14,7 @@ describe('user Controller', () => {
         email: 'test@test.com',
         password: 'test',
       });
-      expect(response).to.be.an('array').with.length(0);
+      expect(response).to.be.an('array').with.length(1);
       const { rows } = await db.query('SELECT * FROM users');
       expect(rows).to.be.an('array').with.length(1);
       const [user] = rows;

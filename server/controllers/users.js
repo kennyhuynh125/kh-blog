@@ -34,7 +34,7 @@ const createUser = async ({ email, password }) => {
   try {
     const hashPass = await bcrypt.hash(password, SALT_ROUNDS);
     await db.query('BEGIN');
-    const query = 'INSERT INTO users (email, password) VALUES ($1, $2)';
+    const query = 'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id';
     const values = [email, hashPass];
     const { rows } = await db.query(query, values);
     await db.query('COMMIT');
