@@ -4,7 +4,7 @@ const userController = require('../controllers/users');
 const router = express.Router();
 
 router.route('/')
-  .get(async (req, res, next) => {
+  .put(async (req, res, next) => {
     try {
       const response = await userController.logIn({
         email: req.body.email,

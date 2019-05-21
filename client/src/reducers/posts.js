@@ -115,9 +115,7 @@ const PostReducer = (state = initialState, action) => {
         post: null,
       };
     default:
-      return {
-        ...state,
-      };
+      return state;
   }
 };
 
