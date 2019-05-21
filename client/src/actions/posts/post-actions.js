@@ -70,16 +70,17 @@ export const updatePost = ({ id, title, content }) => async (dispatch) => {
   return null;
 };
 
-export const createPost = ({ title, content }) => async (dispatch) => {
-  dispatch({ CREATE_POST });
+export const createPost = ({ title, content, userId }) => async (dispatch) => {
+  dispatch({ type: CREATE_POST });
   try {
     const url = '/posts';
     const response = await axios.post(url, {
       title,
       content,
+      userId,
     });
     if (isResponseOk(response.status)) {
-      dispatch({ CREATE_POST_SUCCESS, payload: response.data });
+      dispatch({ type: CREATE_POST_SUCCESS, payload: response.data });
       return { success: true, payload: response.data };
     }
     throw Object.assign(new Error(), response.data);
@@ -95,7 +96,7 @@ export const deletePost = id => async (dispatch) => {
     const url = `/posts/${id}`;
     const response = await axios.post(url);
     if (isResponseOk(response.status)) {
-      dispatch({ DELETE_POST_SUCCESS, payload: response.data });
+      dispatch({ type: DELETE_POST_SUCCESS, payload: response.data });
       return { success: true, payload: response.data };
     }
     throw Object.assign(new Error(), response.data);

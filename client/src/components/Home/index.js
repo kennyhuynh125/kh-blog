@@ -36,6 +36,7 @@ class Home extends Component {
 
   render() {
     const { isLoading, error } = this.state;
+    console.log(this.props);
     if (isLoading) {
       return <Loader />;
     }

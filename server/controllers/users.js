@@ -24,7 +24,7 @@ const logIn = async ({ email, password }) => {
     const token = await jwt.sign({ email }, process.env.SECRET_TOKEN_STRING, {
       expiresIn: '1h',
     });
-    return token;
+    return Object.assign({}, { id: user.id }, { token });
   } catch (e) {
     await db.query('ROLLBACK');
     throw Boom.boomify(e);

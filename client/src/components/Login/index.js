@@ -19,10 +19,11 @@ class Login extends Component {
   handleSubmit = async (values) => {
     const { email, password } = values;
     try {
-      const { success } = await this.props.authActions.logIn({
+      const { success, payload } = await this.props.authActions.logIn({
         email,
         password,
       });
+      console.log(payload);
       if (success) {
         this.props.history.push('/');
       } else {
