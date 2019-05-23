@@ -29,13 +29,13 @@ describe('user Controller', () => {
   context('logIn', () => {
     before(async () => {
       await usersController.createUser({
-        email: 'test@test.com',
+        email: 'test@test2.com',
         password: 'test',
       });
     });
     it('should log a user in by creating a token', async () => {
       const response = await usersController.logIn({
-        email: 'test@test.com',
+        email: 'test@test2.com',
         password: 'test',
       });
       expect(response).to.not.equal(null);
@@ -48,7 +48,7 @@ describe('user Controller', () => {
         });
         throw new Error('Should have thrown!');
       } catch (e) {
-        expect(e.message).to.equal('Error: No user found with email random@random.com');
+        expect(e.message).to.equal('No user found with email random@random.com');
       }
     });
     it('should throw an error if password is incorrect', async () => {
@@ -59,7 +59,7 @@ describe('user Controller', () => {
         });
         throw new Error('Should have thrown!');
       } catch (e) {
-        expect(e.message).to.equal('Error: Incorrect password');
+        expect(e.message).to.equal('Incorrect password');
       }
     });
   });

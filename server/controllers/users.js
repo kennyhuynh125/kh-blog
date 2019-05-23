@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const Boom = require('boom');
 const jwt = require('jsonwebtoken');
 const db = require('../db');
 
@@ -13,20 +14,20 @@ const logIn = async ({ email, password }) => {
     const values = [email];
     const { rows } = await db.query(query, values);
     if (rows.length === 0) {
-      throw new Error(`No user found with email ${email}`);
+      throw Boom.notFound(`No user found with email ${email}`);
     }
     const [user] = rows;
     const hasCorrectPassword = await checkPassword(password, user.password);
     if (!hasCorrectPassword) {
-      throw new Error('Incorrect password');
+      throw Boom.badData('Incorrect password');
     }
     const token = await jwt.sign({ email }, process.env.SECRET_TOKEN_STRING, {
       expiresIn: '1h',
     });
-    return token;
+    return Object.assign({}, { id: user.id }, { token });
   } catch (e) {
     await db.query('ROLLBACK');
-    throw new Error(e);
+    throw Boom.boomify(e);
   }
 };
 

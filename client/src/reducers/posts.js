@@ -14,6 +14,7 @@ import {
   DELETE_POST,
   DELETE_POST_FAIL,
   DELETE_POST_SUCCESS,
+  SET_POST,
 } from '../actions/action-types';
 
 const initialState = {
@@ -95,7 +96,7 @@ const PostReducer = (state = initialState, action) => {
       return {
         ...state,
         isUpdatingPost: false,
-        post: action.payload,
+        post: action.payload[0],
       };
     case DELETE_POST:
       return {
@@ -114,10 +115,13 @@ const PostReducer = (state = initialState, action) => {
         isDeletingPost: false,
         post: null,
       };
-    default:
+    case SET_POST:
       return {
         ...state,
+        post: action.payload,
       };
+    default:
+      return state;
   }
 };
 

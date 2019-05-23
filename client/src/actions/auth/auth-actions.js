@@ -35,7 +35,7 @@ export const logIn = ({ email, password }) => async (dispatch) => {
   dispatch({ type: LOGIN });
   try {
     const url = '/users';
-    const response = axios.get(url, {
+    const response = await axios.put(url, {
       email,
       password,
     });

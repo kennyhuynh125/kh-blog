@@ -18,6 +18,8 @@ export const DELETE_POST = 'DELETE_POST';
 export const DELETE_POST_FAIL = 'DELETE_POST_FAIL';
 export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
 
+export const SET_POST = 'SET_POST';
+
 export const LOGIN = 'LOGIN';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
