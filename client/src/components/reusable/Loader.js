@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Container, Spinner } from 'reactstrap';
 
 const Loader = () => (
   <Container>
-    Loading...
+    <Spinner type='grow' color='primary' />
   </Container>
 );
 

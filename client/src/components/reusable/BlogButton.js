@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 import { COLORS } from '../../constants';
 
 const BlogButton = ({
@@ -9,16 +9,18 @@ const BlogButton = ({
   outline = true,
   size,
 } = {}) => (
-  <Button
-    color={color}
-    onClick={onClick}
-    outline={outline}
-    style={{ color: COLORS.BABY_BLUE, fontFamily: 'Quicksand' }}
-    size={size}
-    type='submit'
-  >
-  {children}
-  </Button>
+  <Container>
+    <Button
+      color={color}
+      onClick={onClick}
+      outline={outline}
+      style={{ color: COLORS.BABY_BLUE, fontFamily: 'Quicksand' }}
+      size={size}
+      type='submit'
+    >
+      {children}
+    </Button>
+  </Container>
 );
 
 export default BlogButton;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { compose, hoistStatics } from 'recompose';
 import { Container } from 'reactstrap';
+import moment from 'moment-timezone';
 import AuthContainer from '../../actions/auth/container';
 import PostContainer from '../../actions/posts/container';
-import {
-  BlogButton, Error, Loader, Text,
-} from '../reusable';
+import { Error, Loader, Spacer } from '../reusable';
+import PostCard from '../PostCard';
 
 class Home extends Component {
   constructor(props) {
@@ -30,13 +30,15 @@ class Home extends Component {
     }
   }
 
-  // handleOnPostPress = (id) => {
-
-  // };
+  handleOnPostPress = async (post) => {
+    const { success } = await this.props.postActions.setPost(post);
+    if (success) {
+      this.props.history.push(`/post/${post.id}`);
+    }
+  };
 
   render() {
     const { isLoading, error } = this.state;
-    console.log(this.props);
     if (isLoading) {
       return <Loader />;
     }
@@ -44,10 +46,16 @@ class Home extends Component {
     if (error) {
       return <Error message={error.message} />;
     }
+    const { posts } = this.props.posts;
+    const orderedPosts = posts.sort((a, b) => moment(b.created_at).valueOf() - moment(a.created_at).valueOf());
     return (
       <Container>
-        <Text>Hello</Text>
-        <BlogButton>Hello</BlogButton>
+        {orderedPosts.map(post => (
+          <Fragment>
+            <PostCard key={post.id} onClick={() => this.handleOnPostPress(post)} post={post} />
+            <Spacer />
+          </Fragment>
+        ))}
       </Container>
     );
   }

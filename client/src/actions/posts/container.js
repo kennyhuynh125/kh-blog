@@ -5,6 +5,7 @@ import {
   deletePost,
   getAllPosts,
   getPost,
+  setPost,
   updatePost,
 } from './post-actions';
 
@@ -18,6 +19,7 @@ const mapDispatchToProps = dispatch => ({
     deletePost,
     getAllPosts,
     getPost,
+    setPost,
     updatePost,
   }, dispatch),
 });

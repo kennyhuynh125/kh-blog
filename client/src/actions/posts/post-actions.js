@@ -15,6 +15,7 @@ import {
   DELETE_POST,
   DELETE_POST_FAIL,
   DELETE_POST_SUCCESS,
+  SET_POST,
 } from '../action-types';
 import { isResponseOk } from '../../utils';
 
@@ -60,14 +61,13 @@ export const updatePost = ({ id, title, content }) => async (dispatch) => {
     });
     if (isResponseOk(response.status)) {
       dispatch({ type: UPDATE_POST_SUCCESS, payload: response.data });
-    } else {
-      throw Object.assign(new Error(), response.data);
+      return { success: true, payload: response.data };
     }
+    throw Object.assign(new Error(), response.data);
   } catch (err) {
     dispatch({ type: UPDATE_POST_FAIL, payload: err });
     return { success: false, payload: err };
   }
-  return null;
 };
 
 export const createPost = ({ title, content, userId }) => async (dispatch) => {
@@ -104,4 +104,9 @@ export const deletePost = id => async (dispatch) => {
     dispatch({ type: DELETE_POST_FAIL, payload: err });
     return { success: false, payload: err };
   }
+};
+
+export const setPost = post => (dispatch) => {
+  dispatch({ type: SET_POST, payload: post });
+  return { success: true, payload: post };
 };
