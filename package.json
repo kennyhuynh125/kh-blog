@@ -26,11 +26,12 @@
     "nodemon": "^1.19.0"
   },
   "scripts": {
-    "test": "mocha --recursive './server'",
+    "heroku-postbuild": "cd client && yarn && yarn run build",
     "lint": "eslint server/. --ext js",
     "lint:fix": "yarn lint --fix",
     "lint:client": "cd client && yarn lint",
     "lint:client:fix": "cd client && yarn lint --fix",
+    "test": "mocha --recursive './server'",
     "watch": "nodemon server/bin/www",
     "start": "node server/bin/www"
   },
