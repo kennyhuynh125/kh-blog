@@ -49,7 +49,7 @@ class Header extends Component {
               {
                 this.props.auth.isAuthenticated && (
                   <NavItem>
-                    <NavLink href='/add'>
+                    <NavLink href='/add/post'>
                       <Text size='small'>Add New Post</Text>
                     </NavLink>
                   </NavItem>
