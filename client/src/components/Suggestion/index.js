@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Yup from 'yup';
 import { Container } from 'reactstrap';
-import { Error } from '../reusable';
+import { Error, Text } from '../reusable';
 import SuggestionForm from './SuggestionForm';
 import { SUGGESTION_OPTIONS } from './utils';
 
@@ -31,7 +31,6 @@ class Suggestion extends Component {
     }
     const { name, suggestion } = values;
     const { value } = selectedSuggestion;
-    console.log(name, suggestion, value);
   };
 
   render() {
