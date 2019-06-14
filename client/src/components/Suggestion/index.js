@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { compose, hoistStatics } from 'recompose';
 import * as Yup from 'yup';
 import { Container } from 'reactstrap';
-import { Error, Text } from '../reusable';
+import SuggestionContainer from '../../actions/suggestions/container';
 import SuggestionForm from './SuggestionForm';
 import { SUGGESTION_OPTIONS } from './utils';
 
@@ -31,6 +32,18 @@ class Suggestion extends Component {
     }
     const { name, suggestion } = values;
     const { value } = selectedSuggestion;
+    const { success, payload } = await this.props.suggestionActions.createSuggestion({
+      name,
+      suggestion,
+      suggestionType: value,
+    });
+    if (success) {
+      this.props.history.push('/');
+    } else {
+      this.setState({
+        error: payload,
+      });
+    }
   };
 
   render() {
@@ -56,4 +69,7 @@ class Suggestion extends Component {
   }
 }
 
-export default Suggestion;
+const enhance = hoistStatics(compose(
+  SuggestionContainer,
+));
+export default enhance(Suggestion);
