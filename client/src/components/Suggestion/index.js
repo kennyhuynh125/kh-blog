@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { compose, hoistStatics } from 'recompose';
 import * as Yup from 'yup';
 import { Container } from 'reactstrap';
+import { Loader, Error } from '../reusable';
+import AuthContainer from '../../actions/auth/container';
 import SuggestionContainer from '../../actions/suggestions/container';
+import MySuggestions from './MySuggestions';
 import SuggestionForm from './SuggestionForm';
 import { SUGGESTION_OPTIONS } from './utils';
 
@@ -11,10 +14,27 @@ class Suggestion extends Component {
     super(props);
     this.state = {
       error: null,
+      isLoading: true,
       name: '',
       selectedSuggestion: null,
       suggestion: '',
     };
+  }
+
+  async componentDidMount() {
+    try {
+      if (this.props.auth.user) {
+        await this.props.suggestionActions.getSuggestions();
+      }
+      this.setState({
+        isLoading: false,
+      });
+    } catch (err) {
+      this.setState({
+        isLoading: false,
+        error: err.message,
+      });
+    }
   }
 
   handleSelectChange = (value) => {
@@ -47,6 +67,17 @@ class Suggestion extends Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return <Loader />;
+    }
+    if (this.state.error) {
+      return <Error message={this.state.error} />;
+    }
+    if (this.props.auth.user) {
+      const { suggestions } = this.props.suggestions;
+      return <MySuggestions suggestions={suggestions} />;
+    }
+
     const {
       name, selectedSuggestion, suggestion,
     } = this.state;
@@ -70,6 +101,7 @@ class Suggestion extends Component {
 }
 
 const enhance = hoistStatics(compose(
+  AuthContainer,
   SuggestionContainer,
 ));
 export default enhance(Suggestion);
