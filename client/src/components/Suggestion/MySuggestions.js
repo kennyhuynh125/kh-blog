@@ -4,7 +4,7 @@ import Suggestion from './Suggestion';
 
 const MySuggestions = ({ suggestions }) => (
   <Container>
-    {suggestions.map(suggestion => <Suggestion suggestion={suggestion} />)}
+    {suggestions.map(suggestion => <Suggestion suggestion={suggestion} key={suggestion.id} />)}
   </Container>
 );
 

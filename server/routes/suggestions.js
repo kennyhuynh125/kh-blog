@@ -6,7 +6,7 @@ const router = express.Router();
 router.route('/')
   .get(async (req, res, next) => {
     try {
-      const response = suggestionController.getSuggestions();
+      const response = await suggestionController.getSuggestions();
       res.send(response);
     } catch (err) {
       next(err);
@@ -14,7 +14,7 @@ router.route('/')
   })
   .post(async (req, res, next) => {
     try {
-      const response = suggestionController.createSuggestion({
+      const response = await suggestionController.createSuggestion({
         name: req.body.name,
         suggestion: req.body.suggestion,
         suggestionType: req.body.suggestionType,
@@ -28,7 +28,7 @@ router.route('/')
 router.route('/:id')
   .post(async (req, res, next) => {
     try {
-      const response = suggestionController.deleteSuggestion({
+      const response = await suggestionController.deleteSuggestion({
         id: req.params.id,
       });
       res.send(response);

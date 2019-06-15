@@ -13,6 +13,7 @@ const Main = () => (
       <Route exact path='/add/post' component={AddPost} />
       <Route exact path='/add/suggestion' component={Suggestion} />
       <Route exact path='/post/:id' component={Post} />
+      <Route exact path='/suggestions' component={Suggestion} />
       <Route exact path={process.env.REACT_APP_SECRET_ROUTE} component={Login} />
   </div>
 );
