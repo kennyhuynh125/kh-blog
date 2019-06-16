@@ -5,6 +5,7 @@ import moment from 'moment-timezone';
 import AuthContainer from '../../actions/auth/container';
 import PostContainer from '../../actions/posts/container';
 import { Error, Loader, Spacer } from '../reusable';
+import AddSuggestion from './AddSuggestion';
 import PostCard from '../PostCard';
 
 class Home extends Component {
@@ -56,6 +57,7 @@ class Home extends Component {
             <Spacer />
           </Fragment>
         ))}
+        {!this.props.auth.isAuthenticated && <AddSuggestion />}
       </Container>
     );
   }

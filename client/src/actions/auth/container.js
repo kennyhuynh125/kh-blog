@@ -4,7 +4,6 @@ import {
   createUser,
   logIn,
   logOut,
-
 } from './auth-actions';
 
 const mapStateToProps = ({ auth }) => ({
