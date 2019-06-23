@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container } from 'reactstrap';
+import { Col } from 'reactstrap';
 
 const defaultStyle = {
   paddingTop: '10px',
@@ -7,11 +7,9 @@ const defaultStyle = {
 };
 
 const Column = ({ children, className, style = defaultStyle } = {}) => (
-  <Container>
-    <Col className={className} style={style}>
-      {children}
-    </Col>
-  </Container>
+  <Col className={className} style={style}>
+    {children}
+  </Col>
 );
 
 export default Column;
