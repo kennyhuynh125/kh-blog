@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { compose, hoistStatics } from 'recompose';
 import * as Yup from 'yup';
-import { Container } from 'reactstrap';
-import { Loader, Error } from '../reusable';
+import { Container, Loader, Error } from '../reusable';
 import AuthContainer from '../../actions/auth/container';
 import SuggestionContainer from '../../actions/suggestions/container';
 import MySuggestions from './MySuggestions';

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container } from 'reactstrap';
-import { Card, Spacer, Text } from '../reusable';
+import {
+  Card, Container, Spacer, Text,
+} from '../reusable';
 
 const Suggestion = ({ suggestion }) => (
   <Container>

@@ -1,12 +1,17 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import Container from './Container';
+import Flex from './Flex';
+import Spacer from './Spacer';
 import Text from './Text';
 import { ERROR_TEXT } from '../../constants';
 
 const Error = ({ message = null } = {}) => (
   <Container>
-    <Text>{ERROR_TEXT}</Text>
-    <Text>Error: {message}</Text>
+    <Flex flexDirection='column'>
+      <Text>{ERROR_TEXT}</Text>
+      <Text>Error: {message}</Text>
+    </Flex>
+    <Spacer />
   </Container>
 );
 

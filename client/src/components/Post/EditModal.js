@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Container, Modal, ModalHeader, ModalBody,
+  Modal, ModalHeader, ModalBody,
 } from 'reactstrap';
 import EditPostForm from './EditPostForm';
-import { Text } from '../reusable';
+import { Container, Text } from '../reusable';
 
 const EditModal = ({
   editorState,

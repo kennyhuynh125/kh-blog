@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import { COLORS } from '../../constants';
 
 const Text = ({
@@ -20,11 +19,9 @@ const Text = ({
     fontFamily: 'Quicksand',
   };
   return (
-    <Container>
-      <span style={style}>
-        {children}
-      </span>
-    </Container>
+    <span style={style}>
+      {children}
+    </span>
   );
 };
 

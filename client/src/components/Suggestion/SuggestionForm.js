@@ -5,9 +5,10 @@ import {
   Form,
   Formik,
 } from 'formik';
-import { Container } from 'reactstrap';
 import SuggestionSelect from './SelectSuggestion';
-import { BlogButton, Column, Text } from '../reusable';
+import {
+  BlogButton, Container, Flex, Spacer, Text,
+} from '../reusable';
 import { COLORS } from '../../constants';
 
 const SuggestionForm = ({
@@ -35,33 +36,34 @@ const SuggestionForm = ({
     >
       {({ isSubmitting }) => (
         <Form>
-            <Column>
-              <Field type='text' name='name' placeholder='Name' />
+            <Flex flexDirection='column'>
+              <Field type='text' name='name' placeholder=' Name' style={{ width: '100%' }}/>
               <ErrorMessage name='name' render={msg => <Text color={COLORS.RED}>{msg}</Text>} />
-            </Column>
-            <Column>
+            </Flex>
+            <Spacer />
             <SuggestionSelect
                 onChange={onChange}
                 options={options}
                 value={value}
-              />
-            </Column>
-          <Column>
+            />
+            <Spacer />
+          <Flex flexDirection='column'>
             <Field
               component='textarea'
               name='suggestion'
               rows='10'
-              placeholder={'Suggestion...'}
+              placeholder={' Suggestion...'}
               style={{ width: '100%' }}
               type='text'
             />
             <ErrorMessage name='suggestion' render={msg => <Text color={COLORS.RED}>{msg}</Text>} />
-          </Column>
-          <Column>
+          </Flex>
+          <Spacer />
+          <Flex>
             <BlogButton disabled={isSubmitting}>
               Submit
             </BlogButton>
-          </Column>
+          </Flex>
         </Form>
       )}
     </Formik>

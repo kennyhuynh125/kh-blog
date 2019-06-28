@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Container } from '../reusable';
 import Suggestion from './Suggestion';
 
 const MySuggestions = ({ suggestions }) => (
