@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import Flex from './Flex';
 import Text from './Text';
 
 const Unauthorized = () => (
-  <Container>
+  <Flex>
     <Text>Uh oh! You are not authorized to view this page!</Text>
-  </Container>
+  </Flex>
 );
 
 export default Unauthorized;

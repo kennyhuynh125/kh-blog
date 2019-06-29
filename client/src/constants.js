@@ -8,4 +8,4 @@ export const COLORS = {
 };
 
 export const ERROR_TEXT = 'Uh oh! There seems to have been an error!';
-export const POST_INTRO_LENGTH = 150;
+export const POST_INTRO_LENGTH = 100;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { compose, hoistStatics } from 'recompose';
-import { Container } from 'reactstrap';
 import * as Yup from 'yup';
-import { Error } from '../reusable';
+import { Container, Error } from '../reusable';
 import AuthContainer from '../../actions/auth/container';
 import LoginForm from './form';
 

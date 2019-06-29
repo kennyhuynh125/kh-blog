@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
 import { compose, hoistStatics } from 'recompose';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
@@ -9,7 +8,7 @@ import AuthContainer from '../../actions/auth/container';
 import PostContainer from '../../actions/posts/container';
 import EditModal from './EditModal';
 import PostDetail from './PostDetail';
-import { BlogButton, Loader } from '../reusable';
+import { BlogButton, Container, Loader } from '../reusable';
 
 class Post extends Component {
   constructor(props) {
@@ -47,7 +46,6 @@ class Post extends Component {
     });
   }
 
-  // @todo
   handleOnSubmit = async (values) => {
     const { title } = values;
     const { editorState } = this.state;

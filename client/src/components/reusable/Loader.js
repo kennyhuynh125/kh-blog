@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Spinner } from 'reactstrap';
+import { Spinner } from 'reactstrap';
+import Flex from './Flex';
 
 const Loader = () => (
-  <Container>
+  <Flex justifyContent='center' alignItems='center'>
     <Spinner type='grow' color='primary' />
-  </Container>
+  </Flex>
 );
 
 export default Loader;

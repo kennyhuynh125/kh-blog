@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment-timezone';
 import {
-  BlogButton, Card, Spacer, Text,
+  BlogButton, Flex, Spacer, Text,
 } from '../reusable';
 import { convertToText, getIntro } from '../../utils';
 
@@ -14,17 +14,18 @@ const style = {
   fontFamily: 'Quicksand',
 };
 const PostCard = ({ post, onClick }) => (
-  <Card style={style}>
+  <Flex overStyle={style} flexDirection='column'>
+    <Flex justifyContent='space-between' width='90%'>
+      <Text size='big'>{post.title}</Text>
+      <Text size='small'>{moment(post.created_at).format('ll')}</Text>
+    </Flex>
     <Spacer />
-    <Text size='small'>{moment(post.created_at).format('ll')}</Text>
+    <Flex justifyContent='space-between' width='90%'>
+      <Text size='small'>{getIntro(convertToText(post.content))}</Text>
+      <BlogButton onClick={onClick}>Read More</BlogButton>
+    </Flex>
     <Spacer />
-    <Text size='big'>{post.title}</Text>
-    <Spacer />
-    <Text size='small'>{getIntro(convertToText(post.content))}</Text>
-    <Spacer />
-    <BlogButton onClick={onClick}>Read More</BlogButton>
-    <Spacer />
-  </Card>
+  </Flex>
 );
 
 export default PostCard;

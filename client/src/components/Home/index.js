@@ -1,10 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { compose, hoistStatics } from 'recompose';
-import { Container } from 'reactstrap';
 import moment from 'moment-timezone';
 import AuthContainer from '../../actions/auth/container';
 import PostContainer from '../../actions/posts/container';
-import { Error, Loader, Spacer } from '../reusable';
+import {
+  Error, Container, Loader, Spacer,
+} from '../reusable';
 import AddSuggestion from './AddSuggestion';
 import PostCard from '../PostCard';
 
@@ -52,10 +53,10 @@ class Home extends Component {
     return (
       <Container>
         {orderedPosts.map(post => (
-          <Fragment>
+          <Container>
             <PostCard key={post.id} onClick={() => this.handleOnPostPress(post)} post={post} />
             <Spacer />
-          </Fragment>
+          </Container>
         ))}
         {!this.props.auth.isAuthenticated && <AddSuggestion />}
       </Container>

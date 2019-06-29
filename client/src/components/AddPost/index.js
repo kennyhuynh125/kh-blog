@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { compose, hoistStatics } from 'recompose';
-import { Container } from 'reactstrap';
 import { EditorState, convertToRaw } from 'draft-js';
 import * as Yup from 'yup';
 import draftToHtml from 'draftjs-to-html';
 import AuthContainer from '../../actions/auth/container';
 import PostContainer from '../../actions/posts/container';
 import AddPostForm from './AddPostForm';
-import { Error, Unauthorized } from '../reusable';
+import { Container, Error, Unauthorized } from '../reusable';
 
 class AddPost extends Component {
   constructor(props) {

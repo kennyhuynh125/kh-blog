@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import {
   ErrorMessage,
   Field,
@@ -7,7 +6,9 @@ import {
   Formik,
 } from 'formik';
 import { Editor } from 'react-draft-wysiwyg';
-import { BlogButton, Column, Text } from '../reusable';
+import {
+  BlogButton, Container, Flex, Spacer, Text,
+} from '../reusable';
 import { COLORS } from '../../constants';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -35,21 +36,23 @@ const EditPostForm = ({
     >
     {({ isSubmitting }) => (
       <Form>
-        <Column>
-          <Field type='text' name='title' placeholder='Title' />
+        <Flex flexDirection='column'>
+          <Field type='text' name='title' placeholder='Title' style={{ width: '100%' }} />
           <ErrorMessage name='title' render={msg => <Text color={COLORS.RED}>{msg}</Text>} />
-        </Column>
-        <Column>
+        </Flex>
+        <Spacer />
+        <Flex>
           <Editor
             editorState={editorState}
             onEditorStateChange={onEditorStateChange}
           />
-        </Column>
-        <Column>
+        </Flex>
+        <Spacer />
+        <Flex>
           <BlogButton disabled={isSubmitting}>
             Save
           </BlogButton>
-        </Column>
+        </Flex>
       </Form>
     )}
     </Formik>
