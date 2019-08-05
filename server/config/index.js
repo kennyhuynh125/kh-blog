@@ -1,6 +1,7 @@
 const devConfig = require('./dev');
 const prodConfig = require('./prod');
 const testConfig = require('./test');
+const winstonConfig = require('./winston');
 
 
 const getConfig = () => {
@@ -15,4 +16,5 @@ const getConfig = () => {
 
 module.exports = {
   getConfig,
+  winstonConfig,
 };
