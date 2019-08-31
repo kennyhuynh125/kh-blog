@@ -36,6 +36,7 @@
     "lint:client": "cd client && yarn lint",
     "lint:client:fix": "cd client && yarn lint --fix",
     "test": "mocha --recursive './server'",
+    "test:client": "cd client && yarn test",
     "watch": "nodemon server/bin/www",
     "start": "node server/bin/www"
   },

@@ -50,7 +50,7 @@ const SuggestionReducer = (state = initialState, action) => {
     case DELETE_SUGGESTION_SUCCESS:
       return {
         ...state,
-        isDeletingSuggestion: true,
+        isDeletingSuggestion: false,
       };
     case GET_SUGGESTIONS:
       return {

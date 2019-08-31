@@ -15,3 +15,4 @@ install:
 script:
   - yarn lint
   - yarn lint:client
+  - yarn test:client
